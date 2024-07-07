@@ -22,20 +22,20 @@ To get started with this project, follow these steps:
    cd art-generation
   ```
 
-Install Dependencies:
+**Install Dependencies:**
 Make sure you have Node.js installed. Then, run:
 
 ```
 npm install
 ```
 
-Get a Free API Key:
+**Get a Free API Key:**
 Obtain a free API key from Lighthouse Storage. This key will provide you with 1GB of storage.
 
-Configuration
+## Configuration
 You need to adjust the configuration file to include your own keys, names, image resolution, etc.
 
-Open config.json:
+**Open config.json:**
 
 ```
 {
@@ -56,13 +56,13 @@ Open config.json:
     "policyID": "you_policy_id"
 }
 ```
-Edit the Configuration:
+**Edit the Configuration:**
 Replace YOUR_LIGHTHOUSE_API_KEY with the API key you obtained from Lighthouse Storage. Adjust the name and imageResolution as per your requirements.
 
-Running the Project
+## Running the Project
 To run the project and generate images and metadata:
 
-Run the Generate Script:
+**Run the Generate Script:**
 
 ```
 node generate_nfts.js
@@ -70,24 +70,20 @@ node generate_nfts.js
 This script will generate images and their related metadata, pinning each image to IPFS if ipfsPinning is set to true in the configuration file.
 Set to false will create the metadata without a linked image src
 
-Customization
+## Customization
 This project can be configured to use other storage solutions if desired. You can modify the code to integrate different APIs or storage mechanisms according to your needs.
 
-Example Customization for Different Storage Solutions
-Modify generate_nfts.js:
-Adjust the code to interact with your chosen storage solution API.
-
-Update Configuration:
+**Update Configuration:**
 Add any necessary configuration parameters to config.json.
 
-Output
+## Output
 The generated images and their related metadata will be saved in the output directory. Each image will be pinned to IPFS as it is created, ensuring that your data is stored securely and is accessible via the IPFS network.
 
-Rules Configuration
+## Rules Configuration
 You can set specific rules for your generated images in the rules.json file. These rules can include themes, must and must-not match conditions, and limits on certain trait rarities.
 
-Example Rules Configuration
-Open rules.json:
+**Example Rules Configuration**
+Edit your rules.json:
 
 ```
 {
@@ -118,7 +114,7 @@ Open rules.json:
 
 ```
 
-Edit the Rules:
+**Edit the Rules:**
 mustBeWith: Define traits that must appear together.
 cannotBeWith: Define traits that cannot appear together.
 rarityLimits: Set limits on how often certain traits can appear.
@@ -129,7 +125,7 @@ themeRestrictions: Define trait restrictions for specific themes.
 
 By configuring rules.json, you can control the characteristics and distribution of traits in the generated images to fit your specific requirements.
 
-License
+## License
 This project is licensed under the MIT License.
 
 If this helped you consider tipping some ADA to:
