@@ -35,7 +35,7 @@ Lighthouse Storage https://www.lighthouse.storage/
 or
 Thirdweb https://thirdweb.com/
 
-Configuration
+## Configuration
 You need to adjust the configuration file to include your own keys, names, image resolution, etc.
 
 Open config.json:
@@ -72,7 +72,7 @@ Open config.json:
 Edit the Configuration:
 Add your API key you obtained from Lighthouse Storage and/or Thirdweb. Adjust the name and image size as per your requirements.
 
-Running the Project
+## Running the Project
 To run the project and generate images and metadata:
 
 Run the Generate Script:
@@ -83,23 +83,17 @@ node generate_nfts.js
 This script will generate images and their related metadata, pinning each image to IPFS if ipfsPinning is set to true in the configuration file.
 Set to false will create the metadata without a linked image src
 
-Customization
+## Customization
 This project can be configured to use other storage solutions if desired. You can modify the code to integrate different APIs or storage mechanisms according to your needs.
-
-Example Customization for Different Storage Solutions
-Modify generate_nfts.js:
-Adjust the code to interact with your chosen storage solution API.
-
-Update Configuration:
 Add any necessary configuration parameters to config.json.
 
-Output
+## Output
 The generated images and their related metadata will be saved in the output directory. Each image will be pinned to IPFS as it is created, ensuring that your data is stored securely and is accessible via the IPFS network.
 
-Rules Configuration
+## Rules Configuration
 You can set specific rules for your generated images in the rules.json file. These rules can include themes, must and must-not match conditions, and limits on certain trait rarities.
 
-Example Rules Configuration
+**Example Rules Configuration**
 Open rules.json:
 
 ```
@@ -131,24 +125,24 @@ Open rules.json:
 
 ```
 
-Edit the Rules:
-mustBeWith: Define traits that must appear together.
+**Edit the Rules:**
+**mustBeWith:** Define traits that must appear together.
 
-cannotBeWith: Define traits that cannot appear together.
+**cannotBeWith:** Define traits that cannot appear together.
 
-rarityLimits: Set limits on how often certain traits can appear.
+**rarityLimits:** Set limits on how often certain traits can appear.
 
-mandatoryItems: Define items that must be included in every generated image.
+**mandatoryItems:** Define items that must be included in every generated image.
 
-optionalItems: Define items that can optionally be included.
+**optionalItems:** Define items that can optionally be included.
 
-colorSchemes: Define color schemes for different themes.
+**colorSchemes:** Define color schemes for different themes.
 
-themeRestrictions: Define trait restrictions for specific themes.
+**themeRestrictions:** Define trait restrictions for specific themes.
 
 By configuring rules.json, you can control the characteristics and distribution of traits in the generated images to fit your specific requirements.
 
-License
+## License
 This project is licensed under the MIT License.
 
 If this helped you consider tipping some ADA to:
