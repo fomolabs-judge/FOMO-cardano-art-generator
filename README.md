@@ -19,7 +19,7 @@ To get started with this project, follow these steps:
 1. **Clone the Repository:**
   ```
    git clone https://github.com/fomolabs-judge/FOMO-cardano-art-generator.git
-   cd art-generation
+   cd FOMO-cardano-art-generator
   ```
 
 **Install Dependencies:**
