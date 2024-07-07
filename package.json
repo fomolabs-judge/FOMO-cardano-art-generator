@@ -1,7 +1,9 @@
 {
   "dependencies": {
+    "@fleek-platform/sdk": "^2.1.4",
     "@lighthouse-web3/sdk": "^0.3.3",
     "@pinata/sdk": "^2.1.0",
+    "@thirdweb-dev/storage": "^2.0.15",
     "axios": "^1.7.2",
     "canvas": "^2.11.2",
     "dotenv": "^16.4.5",
