@@ -23,5 +23,6 @@
     "imageSize": 500,
     "nftCount": 10,
     "nftPrefix": "nft_name",
-    "policyID": "your-policy-id"
+    "policyID": "your-policy-id",
+    "useRules": true
 }
