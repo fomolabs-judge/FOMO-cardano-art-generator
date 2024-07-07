@@ -26,6 +26,7 @@ const {
 const ipfsEnabled = ipfs.enabled;
 const ipfsService = ipfs.service;
 const ipfsConfig = ipfs.config;
+const useRules = config.useRules !== undefined ? config.useRules : true;
 
 let thirdwebStorage;
 if (ipfsEnabled && ipfsService === 'thirdweb') {
@@ -42,6 +43,8 @@ function ensureDirectoryExists(directory) {
 const rarityCount = {};
 
 function isValidCombination(combo) {
+    if (!useRules) return true;  // Always return true if rules are disabled
+
     for (const [item, requiredItems] of Object.entries(rules.mustBeWith || {})) {
         if (Object.values(combo).includes(item)) {
             for (const requiredItem of requiredItems) {
@@ -97,12 +100,14 @@ function isValidCombination(combo) {
 
 function generateCombinations(n) {
     const combinations = new Set();
-    const keys = [...Object.keys(attributesFolders), ...(rules.optionalItems || [])];
+    const keys = [...Object.keys(attributesFolders), ...(useRules ? (rules.optionalItems || []) : [])];
+    let attempts = 0;
+    const maxAttempts = n * 10; // Adjust this multiplier as needed
 
-    while (combinations.size < n) {
+    while (combinations.size < n && attempts < maxAttempts) {
         const combination = {};
         for (const attr of keys) {
-            if (rules.optionalItems && rules.optionalItems.includes(attr) && Math.random() < 0.5) {
+            if (useRules && rules.optionalItems && rules.optionalItems.includes(attr) && Math.random() < 0.5) {
                 continue;
             }
 
@@ -126,19 +131,24 @@ function generateCombinations(n) {
             combination[attr] = path.parse(files[Math.floor(Math.random() * files.length)]).name;
         }
 
-        if (Object.keys(combination).length > 0 && isValidCombination(combination)) {
-            combinations.add(JSON.stringify(combination));
-            Object.values(combination).forEach(item => {
-                if (rules.rarityLimits && rules.rarityLimits[item]) {
-                    rarityCount[item] = (rarityCount[item] || 0) + 1;
-                }
-            });
+        const combinationString = JSON.stringify(combination);
+        if (Object.keys(combination).length > 0 &&
+            (useRules ? isValidCombination(combination) : true) &&
+            !combinations.has(combinationString)) {
+            combinations.add(combinationString);
+            if (useRules) {
+                Object.values(combination).forEach(item => {
+                    if (rules.rarityLimits && rules.rarityLimits[item]) {
+                        rarityCount[item] = (rarityCount[item] || 0) + 1;
+                    }
+                });
+            }
         }
+        attempts++;
     }
 
-    if (combinations.size === 0 && n > 0) {
-        console.error("Error: Unable to generate any valid combinations. Please check your config.json and rules.json files.");
-        process.exit(1);
+    if (combinations.size < n) {
+        console.error(`Warning: Could only generate ${combinations.size} unique combinations out of ${n} requested.`);
     }
 
     return Array.from(combinations).map(JSON.parse);
@@ -159,9 +169,9 @@ async function uploadToIPFS(filePath) {
             const fileContent = fs.readFileSync(filePath);
             const fileName = path.basename(filePath);
             const uri = await thirdwebStorage.upload(fileContent);
-            
+
             console.log(`Uploaded ${fileName} to IPFS via Thirdweb:`, uri);
-            return uri; 
+            return uri;
         } else {
             throw new Error(`Invalid IPFS service specified: ${ipfsService}`);
         }
@@ -244,6 +254,7 @@ async function createNFTs(combinations) {
 async function main() {
     try {
         console.log("Starting NFT generation process...");
+        console.log(`Rules are ${useRules ? 'enabled' : 'disabled'}.`);
         if (ipfsEnabled) {
             console.log(`IPFS pinning is enabled. Using service: ${ipfsService}`);
         } else {
