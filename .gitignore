@@ -1,6 +1,3 @@
-# Ignore metadata formatting folder
-metadata-formatting/
-
 # Ignore all files in output/metadata and output/images, but keep the folders
 output/metadata/*
 output/images/*
@@ -17,11 +14,13 @@ layers/*/*
 layers/*
 
 # Keep the folders
+!layers/
 !layers/*
-!layers/*/
 
 # Keep an empty file to retain the folder structure in the repository
 !.gitkeep
+
+# Other ignores
 node_modules
 .env
 .env.local
