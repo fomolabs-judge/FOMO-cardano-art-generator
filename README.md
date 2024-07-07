@@ -1,6 +1,6 @@
 # Art-Generation Project
 
-This project is designed to generate images and their related metadata, pinning each image to IPFS using the  or Thirdweb API. The configuration can be customized according to your needs, including API keys, names, image resolution, and storage solutions.
+This project is designed to generate images and their related metadata, pinning each image to IPFS using the Lighthouse or Thirdweb APIs. The configuration can be customized according to your needs, including API keys, names, image resolution, and storage solutions.
 
 ## Table of Contents
 
