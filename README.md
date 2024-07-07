@@ -25,9 +25,9 @@ To get started with this project, follow these steps:
 Install Dependencies:
 Make sure you have Node.js installed. Then, run:
 
-  ```
+```
 npm install
-  ```
+```
 
 Get a Free API Key:
 Obtain a free API key from Lighthouse Storage. This key will provide you with 1GB of storage.
@@ -37,7 +37,7 @@ You need to adjust the configuration file to include your own keys, names, image
 
 Open config.json:
 
-  ```
+```
 {
     "lighthouseApiKey": "your_api_key",
     "ipfs_pining": "true",
@@ -55,7 +55,7 @@ Open config.json:
     "nftPrefix": "NFT_Name",
     "policyID": "you_policy_id"
 }
-  ```
+```
 Edit the Configuration:
 Replace YOUR_LIGHTHOUSE_API_KEY with the API key you obtained from Lighthouse Storage. Adjust the name and imageResolution as per your requirements.
 
@@ -64,9 +64,9 @@ To run the project and generate images and metadata:
 
 Run the Generate Script:
 
-  ```
+```
 node generate_nfts.js
-  ```
+```
 This script will generate images and their related metadata, pinning each image to IPFS if ipfsPinning is set to true in the configuration file.
 Set to false will create the metadata without a linked image src
 
@@ -89,7 +89,7 @@ You can set specific rules for your generated images in the rules.json file. The
 Example Rules Configuration
 Open rules.json:
 
-  ```
+```
 {
   "mustBeWith": {
     "Hero": ["Cape", "Mask"],
@@ -116,7 +116,7 @@ Open rules.json:
   }
 }
 
-  ```
+```
 
 Edit the Rules:
 mustBeWith: Define traits that must appear together.
@@ -133,4 +133,6 @@ License
 This project is licensed under the MIT License.
 
 If this helped you consider tipping some ADA to:
+```
 addr1q823l9q8qss4qz6dksvp5hcjp4h2fajlffq8aup0juqsguk449uj8z7tnml3xaqakdvhjuugfd2g9xd25e6zf4huamfset7h3z
+```
