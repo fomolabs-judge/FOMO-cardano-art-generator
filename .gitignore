@@ -1,0 +1,27 @@
+# Ignore metadata formatting folder
+metadata-formatting/
+
+# Ignore all files in output/metadata and output/images, but keep the folders
+output/metadata/*
+output/images/*
+
+# Keep the folders
+!output/metadata/
+!output/images/
+
+# Keep an empty file to retain the folder structure in the repository
+!.gitkeep
+
+# Ignore all files in layers and subfolders, but keep the folders
+layers/*/*
+layers/*
+
+# Keep the folders
+!layers/*
+!layers/*/
+
+# Keep an empty file to retain the folder structure in the repository
+!.gitkeep
+node_modules
+.env
+.env.local

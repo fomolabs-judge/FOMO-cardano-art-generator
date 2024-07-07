@@ -1,0 +1,17 @@
+{
+    "lighthouseApiKey": "your_api_key",
+    "ipfs_pining": "true",
+    "attributesFolders": {
+        "Background": "./layers/Background",
+        "Skin": "./layers/Skin",
+        "Clothes": "./layers/Clothes",
+        "Mouth": "./layers/Mouth",
+        "Eyes": "./layers/Eyes",
+        "Head": "./layers/Head"
+    },
+    "outputFolder": "./output",
+    "imageSize": 500,
+    "nftCount": 10,
+    "nftPrefix": "NFT_Name",
+    "policyID": "you_policy_id"
+}

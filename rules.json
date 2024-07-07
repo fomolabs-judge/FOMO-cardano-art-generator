@@ -1,0 +1,25 @@
+{
+  "mustBeWith": {
+    "Hero": ["Cape", "Mask"],
+    "Villain": ["Weapon", "EvilLaugh"]
+  },
+  "cannotBeWith": {
+    "Bane": ["RoundGlasses", "Book", "SymbolCardano"],
+    "Joker": ["RoundGlasses", "Book", "SymbolCardano"]
+  },
+  "rarityLimits": {
+    "Cape": 50,
+    "Weapon": 30,
+    "EvilLaugh": 20
+  },
+  "mandatoryItems": ["Background"],
+  "optionalItems": ["Hat", "Gloves", "Shoes"],
+  "colorSchemes": {
+    "Hero": ["Red", "Blue", "Gold"],
+    "Villain": ["Black", "Purple", "Green"]
+  },
+  "themeRestrictions": {
+    "Steampunk": ["Goggles", "Cogs", "Bronze"],
+    "Cyberpunk": ["Neon", "TechWear", "LED"]
+  }
+}
