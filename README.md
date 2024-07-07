@@ -20,14 +20,14 @@ To get started with this project, follow these steps:
   ```
    git clone https://github.com/yourusername/art-generation.git
    cd art-generation
-     ```
+  ```
 
 Install Dependencies:
 Make sure you have Node.js installed. Then, run:
 
-  ```
+```
 npm install
-  ```
+```
 
 Get a Free API Key:
 Obtain a free API key from:
@@ -40,7 +40,7 @@ You need to adjust the configuration file to include your own keys, names, image
 
 Open config.json:
 
-  ```
+```
 {
     "ipfs": {
         "enabled": true,
@@ -68,7 +68,7 @@ Open config.json:
     "nftPrefix": "nft_name",
     "policyID": "your-policy-id"
 }
-  ```
+```
 Edit the Configuration:
 Add your API key you obtained from Lighthouse Storage and/or Thirdweb. Adjust the name and image size as per your requirements.
 
@@ -77,9 +77,9 @@ To run the project and generate images and metadata:
 
 Run the Generate Script:
 
-  ```
+```
 node generate_nfts.js
-  ```
+```
 This script will generate images and their related metadata, pinning each image to IPFS if ipfsPinning is set to true in the configuration file.
 Set to false will create the metadata without a linked image src
 
@@ -102,7 +102,7 @@ You can set specific rules for your generated images in the rules.json file. The
 Example Rules Configuration
 Open rules.json:
 
-  ```
+```
 {
   "mustBeWith": {
     "Hero": ["Cape", "Mask"],
@@ -129,15 +129,21 @@ Open rules.json:
   }
 }
 
-  ```
+```
 
 Edit the Rules:
 mustBeWith: Define traits that must appear together.
+
 cannotBeWith: Define traits that cannot appear together.
+
 rarityLimits: Set limits on how often certain traits can appear.
+
 mandatoryItems: Define items that must be included in every generated image.
+
 optionalItems: Define items that can optionally be included.
+
 colorSchemes: Define color schemes for different themes.
+
 themeRestrictions: Define trait restrictions for specific themes.
 
 By configuring rules.json, you can control the characteristics and distribution of traits in the generated images to fit your specific requirements.
@@ -146,4 +152,6 @@ License
 This project is licensed under the MIT License.
 
 If this helped you consider tipping some ADA to:
+```
 addr1q823l9q8qss4qz6dksvp5hcjp4h2fajlffq8aup0juqsguk449uj8z7tnml3xaqakdvhjuugfd2g9xd25e6zf4huamfset7h3z
+```
